@@ -56,8 +56,8 @@ pip install fastapi uvicorn openai pydantic python-dotenv
 配置环境变量
 
 bash
-# 编辑.env文件，添加你的DeepSeek API密钥
-# DEEPSEEK_API_KEY=你的API密钥
+编辑.env文件，添加你的DeepSeek API密钥
+DEEPSEEK_API_KEY=你的API密钥
 运行服务
 
 bash
@@ -65,50 +65,7 @@ uvicorn backend:app --reload --port 8000
 验证运行
 访问 http://localhost:8000/docs 查看完整的API文档
 
-📡 API接口
-1. 情绪分析接口
-http
-POST /emotion/analyze
-Content-Type: application/json
 
-{
-  "text": "最近考试压力好大，不知道该怎么复习",
-  "user_id": "student_001",
-  "session_id": "session_123"
-}
-响应示例：
-
-json
-{
-  "text": "最近考试压力好大，不知道该怎么复习",
-  "emotion": "学业压力",
-  "confidence": 0.85,
-  "context_emotion": "深层焦虑",
-  "trend": "escalating"
-}
-2. 智能对话接口
-http
-POST /chat/intelligent
-Content-Type: application/json
-
-{
-  "text": "我不知道该怎么准备期末考试",
-  "user_id": "student_001",
-  "session_id": "session_123"
-}
-响应示例：
-
-json
-{
-  "response": "听起来你正面临考试的压力。这种感受在大学期间很常见，尤其是当多门考试同时来临时。我们可以先理清一下你的担忧具体是什么方面...",
-  "emotion_summary": {
-    "conversation_stage": "exploring",
-    "primary_emotion": "学业压力",
-    "emotion_trend": "consistent",
-    "key_concerns": ["academic"],
-    "turn_count": 3
-  }
-}
 🏗️ 系统架构
 核心模块设计
 text
@@ -125,25 +82,7 @@ MindPal Pro 架构
 │   └── Context Cache       # 上下文缓存
 └── 集成层
     └── DeepSeek API        # AI模型集成
-对话状态管理
-python
-class ConversationManager:
-    """管理对话上下文的核心类"""
-    def __init__(self):
-        self.sessions = {}  # 会话存储
-        self.max_history = 20  # 最大历史记录
-        
-    def get_or_create_session(self, user_id, session_id):
-        # 获取或创建对话会话
-        pass
-    
-    def add_interaction(self, user_id, session_id, user_input, emotion, ai_response):
-        # 添加完整交互记录
-        pass
-    
-    def get_conversation_summary(self, user_id, session_id):
-        # 获取对话摘要
-        pass
+
 四阶段对话策略
 阶段	目标	回应重点	示例问题
 初始	建立信任	共情、开放式提问	"听起来你最近压力很大，想具体聊聊吗？"
