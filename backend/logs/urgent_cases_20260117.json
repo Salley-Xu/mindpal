@@ -1,0 +1,15 @@
+[
+  {
+    "timestamp": "2026-01-17T18:44:48.225201",
+    "user_id": "user_3056",
+    "session_id": "session_1768646122_fc4e3ab3",
+    "urgent_level": "urgent",
+    "triggers": [
+      "活够了"
+    ],
+    "risk_score": 10.0,
+    "user_input": "感觉自己活够了",
+    "emotion": "抑郁",
+    "ai_response_preview": "听到你这么说，我非常担心你。你现在的痛苦是真实的，但请相信，这种感受是可以改变的。\n\n**请立即联系专业帮助：**\n- **心理危机干预热线：** 拨打 **400-161-9995**（24小时）\n"
+  }
+]
