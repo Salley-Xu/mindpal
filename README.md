@@ -43,11 +43,13 @@ Python 3.8+
 DeepSeek API密钥（免费获取）
 
 安装步骤
+
 克隆仓库
 
 bash
 git clone https://github.com/Salley_Xu/mindpal.git
 cd mindpal
+
 安装依赖
 
 bash
@@ -58,73 +60,127 @@ pip install fastapi uvicorn openai pydantic python-dotenv
 bash
 编辑.env文件，添加你的DeepSeek API密钥
 DEEPSEEK_API_KEY=你的API密钥
+
 运行服务
 
 bash
 uvicorn backend:app --reload --port 8000
+
 验证运行
 访问 http://localhost:8000/docs 查看完整的API文档
 
 
 🏗️ 系统架构
+
 核心模块设计
+
 text
+
 MindPal Pro 架构
+
 ├── 应用层 (FastAPI)
+
 │   ├── /emotion/analyze    # 情绪分析API
+
 │   └── /chat/intelligent   # 智能对话API
+
 ├── 业务逻辑层
+
 │   ├── ConversationManager # 对话状态管理
+
 │   ├── EmotionAnalyzer     # 情绪分析引擎
+
 │   └── ResponseGenerator   # 智能回应生成
+
 ├── 数据层
+
 │   ├── Session Storage     # 会话数据管理
+
 │   └── Context Cache       # 上下文缓存
+
 └── 集成层
+
     └── DeepSeek API        # AI模型集成
 
 四阶段对话策略
+
 阶段	目标	回应重点	示例问题
+
 初始	建立信任	共情、开放式提问	"听起来你最近压力很大，想具体聊聊吗？"
+
 探索	理清思绪	深度提问、模式识别	"这种感受通常什么时候出现？"
+
 深化	处理核心	洞察分析、连接想法	"你觉得这种情况和以前的经历有关吗？"
+
 解决	具体帮助	工具推荐、行动计划	"我可以分享一个时间管理技巧，你想试试吗？"
+
 🔧 项目结构
+
 text
+
 mindpal/
+
 ├── backend.py              # 主后端应用（FastAPI）
+
 ├── .gitignore            # Git忽略配置
+
 ├── README.md             # 项目说明文档
+
 ├── frontend.py               # 前端应用
+
 📊 关键技术
+
 上下文感知算法
+
 python
+
 def analyze_emotion_with_context(text, conversation_summary=None):
+
     """
-    基于上下文的情绪分析
-    1. 基础情绪识别（Few-shot学习）
-    2. 上下文情绪分析（结合对话历史）
-    3. 趋势预测（基于时间线）
-    """
-    # 基础情绪识别
-    base_prompt = "分析以下文本的主要情绪..."
     
+    基于上下文的情绪分析
+    
+    1. 基础情绪识别（Few-shot学习）
+    
+    2. 上下文情绪分析（结合对话历史）
+    
+    3. 趋势预测（基于时间线）
+    
+    """
+    
+    # 基础情绪识别
+    
+    base_prompt = "分析以下文本的主要情绪..."
+
     # 上下文增强分析
+    
     if conversation_summary:
+    
         context_prompt = f"基于对话上下文分析用户的深层情绪..."
     
     return current_emotion, context_emotion, confidence
+
 情绪类别体系
+
 python
+
 EMOTION_CATEGORIES = {
+
     '学业压力': ['考试', '学习', '论文', '毕业', '成绩'],
+    
     '人际关系': ['对象', '朋友', '室友', '家庭', '社交'],
+    
     '未来规划': ['将来', '未来', '就业', '方向', '迷茫'],
+    
     '自我认知': ['我', '自己', '性格', '能力', '自信'],
+    
     '情绪状态': ['焦虑', '抑郁', '愤怒', '快乐', '平静']
 }
+
 🚢 部署指南
+
 本地部署
+
 bash
 # 开发模式（热重载）
 uvicorn backend:app --reload --host 0.0.0.0 --port 8000
@@ -148,11 +204,15 @@ Railway：一键部署，简单易用
 AWS/GCP：企业级部署方案
 
 📈 性能指标
+
 指标	目标值	实际值
+
 API响应时间	< 500ms	~300ms
+
 情绪分析准确率	> 85%	~90%
-并发用户数	100+	可扩展
+
 可用性	99.9%	开发中
+
 🤝 贡献指南
 我们欢迎所有形式的贡献！请参考以下步骤：
 
