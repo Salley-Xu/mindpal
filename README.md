@@ -40,14 +40,14 @@ https://img.shields.io/badge/GitHub-Open%2520Source-success.svg
 环境要求
 Python 3.8+
 
-DeepSeek API密钥（免费获取）
+DeepSeek API密钥
 
 安装步骤
 
 克隆仓库
 
 bash
-git clone https://github.com/Salley_Xu/mindpal.git
+git clone https://github.com/Salley-Xu/mindpal.git
 cd mindpal
 
 安装依赖
