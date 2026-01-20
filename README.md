@@ -1,7 +1,5 @@
 🧠 MindPal Pro - 大学生智能心理对话伙伴
-https://img.shields.io/badge/FastAPI-0.104.1-009688.svg
-https://img.shields.io/badge/Python-3.8%252B-blue.svg
-https://img.shields.io/badge/GitHub-Open%2520Source-success.svg
+
 
 一个基于上下文感知的智能对话系统，专门为大学生提供心理支持和情绪管理。系统能够理解对话上下文，识别情绪演变，并提供个性化的对话引导。
 
